@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://maps/map_title.tscn" type="PackedScene" id=1]
+
+[node name="map_sprite" type="ViewportSprite"]
+
+viewport = NodePath("Viewport")
+centered = false
+
+[node name="Viewport" type="Viewport" parent="."]
+
+rect = Rect2( 0, 0, 1024, 600 )
+own_world = true
+world = null
+transparent_bg = false
+render_target/enabled = true
+render_target/v_flip = false
+render_target/clear_on_new_frame = true
+render_target/filter = false
+render_target/gen_mipmaps = false
+render_target/update_mode = 1
+audio_listener/enable_2d = false
+audio_listener/enable_3d = false
+physics/object_picking = false
+gui/disable_input = false
+
+[node name="GridMap" parent="Viewport" instance=ExtResource( 1 )]
+
+data = {
+"cells": IntArray( 5, 1, 1048577, 65535, 1, 1441792, 5, 7, 1048577, 65535, 7, 1441793, 5, 13, 1048579, 65535, 13, 3, 131077, 65519, 655363, 196607, 65519, 1441795, 131077, 65525, 1048582, 196607, 65525, 1441793, 196610, 65525, 1441800, 5, 65531, 1048577, 65535, 65531, 1441796 )
+}
+
+

@@ -1,0 +1,126 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://maps/map_parts.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://maps/map.gd" type="Script" id=2]
+[ext_resource path="res://models/skybox.scn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+extents = Vector3( 1, 1, 1 )
+
+[node name="GridMap" type="GridMap"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+theme/theme = ExtResource( 1 )
+theme/bake = true
+lighting/bake = false
+cell/size = 1.0
+cell/octant_size = 100
+cell/center_x = false
+cell/center_y = true
+cell/center_z = false
+cell/scale = 1.0
+data = {
+"cells": IntArray( 5, 1, 1048577, 65535, 1, 1441792, 65538, 1, 1441800, 5, 7, 1048577, 65535, 7, 1441793, 65538, 7, 1441800, 5, 13, 1048579, 65535, 13, 3, 131077, 65519, 655363, 196607, 65519, 1441795, 65538, 65525, 1441800, 131077, 65525, 1048582, 196607, 65525, 1441793, 5, 65531, 1048577, 65535, 65531, 1441796, 65538, 65531, 1441800 )
+}
+script/script = ExtResource( 2 )
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 1, 0 )
+}
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 0.0552291, -0.497692, 0.865594, 0.0316905, 0.867354, 0.496682, -0.997971, -1.71363e-07, 0.0636753, 0, 16.4001, 0 )
+layers = 1
+params/enabled = true
+params/editor_only = false
+params/bake_mode = 3
+params/energy = 1.0
+colors/diffuse = Color( 1, 1, 1, 1 )
+colors/specular = Color( 1, 1, 1, 1 )
+shadow/shadow = false
+shadow/darkening = 0.0
+shadow/z_offset = 0.0
+shadow/z_slope_scale = 0.0
+shadow/esm_multiplier = 1.0
+shadow/blur_passes = 0.0
+projector = null
+operator = 0
+shadow/mode = 3
+shadow/max_distance = 1000.0
+shadow/split_weight = 0.5
+shadow/zoffset_scale = 2.0
+
+[node name="DirectionalLight 2" type="DirectionalLight" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( -0.0326923, -0.858137, -0.512379, -0.877183, -0.221079, 0.426233, -0.479043, 0.463384, -0.745516, 0, 16.4001, 0 )
+layers = 1
+params/enabled = true
+params/editor_only = false
+params/bake_mode = 3
+params/energy = 0.69
+colors/diffuse = Color( 1, 1, 1, 1 )
+colors/specular = Color( 1, 1, 1, 1 )
+shadow/shadow = false
+shadow/darkening = 0.0
+shadow/z_offset = 0.15
+shadow/z_slope_scale = 0.0
+shadow/esm_multiplier = 1.0
+shadow/blur_passes = 0.0
+projector = null
+operator = 0
+shadow/mode = 3
+shadow/max_distance = 1000.0
+shadow/split_weight = 0.5
+shadow/zoffset_scale = 2.0
+
+[node name="Area_Bounds" type="Area" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+input/ray_pickable = false
+input/capture_on_drag = false
+shape_count = 1
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shapes/0/trigger = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = false
+collision/layers = 0
+collision/mask = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_Bounds"]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera" type="Camera" parent="."]
+
+_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform/local = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 32, -3 )
+projection = 0
+fov = 65.0
+near = 0.1
+far = 100.0
+keep_aspect = 1
+current = false
+visible_layers = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+
+[node name="skybox" parent="." instance=ExtResource( 3 )]
+
+

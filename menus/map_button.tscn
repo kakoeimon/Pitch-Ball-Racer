@@ -1,0 +1,41 @@
+[gd_scene format=1]
+
+[node name="map_button" type="Button"]
+
+rect/min_size = Vector2( 300, 300 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 300.0
+margin/bottom = 300.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="Viewport" type="Viewport" parent="."]
+
+rect = Rect2( 0, 0, 300, 300 )
+own_world = true
+world = null
+transparent_bg = false
+render_target/enabled = true
+render_target/v_flip = false
+render_target/clear_on_new_frame = true
+render_target/filter = false
+render_target/gen_mipmaps = false
+render_target/update_mode = 1
+audio_listener/enable_2d = false
+audio_listener/enable_3d = false
+physics/object_picking = false
+gui/disable_input = false
+
+[node name="ViewportSprite" type="ViewportSprite" parent="."]
+
+transform/pos = Vector2( 148.646, 150.316 )
+viewport = NodePath("../Viewport")
+
+
