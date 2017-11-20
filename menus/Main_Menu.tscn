@@ -1,16 +1,35 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://fonts/font_theme.tres" type="Theme" id=1]
 [ext_resource path="res://menus/Main_Menu.gd" type="Script" id=2]
 [ext_resource path="res://menus/map_title.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/font_64.fnt" type="BitmapFont" id=4]
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = {
+"fragment": "uniform color Color;
+COLOR = tex(TEXTURE, UV) * Color;",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+shader_param/Color = Color( 1, 0.304, 0, 1 )
+
+[sub_resource type="Theme" id=3]
 
 default_font = ExtResource( 4 )
 
 [node name="Main_Menu" type="Control"]
 
+material/material = SubResource( 2 )
 anchor/right = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
@@ -31,7 +50,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = SubResource( 1 )
+theme/theme = SubResource( 3 )
 margin/left = 288.0
 margin/top = 50.0
 margin/right = 739.0
@@ -43,6 +62,7 @@ max_lines_visible = -1
 
 [node name="Start" type="Button" parent="."]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -60,6 +80,7 @@ flat = false
 
 [node name="Quit" type="Button" parent="."]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -78,6 +99,7 @@ flat = false
 [node name="map_selector" type="Control" parent="."]
 
 visibility/visible = false
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -89,6 +111,7 @@ margin/bottom = 468.0
 
 [node name="Label" type="Label" parent="map_selector"]
 
+material/use_parent = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -104,6 +127,7 @@ max_lines_visible = -1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="map_selector"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -117,6 +141,7 @@ scroll/vertical = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="map_selector/ScrollContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -131,6 +156,7 @@ alignment = 0
 [node name="Laps" type="Label" parent="."]
 
 visibility/visible = false
+material/use_parent = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -147,6 +173,7 @@ max_lines_visible = -1
 
 [node name="ButtonGroup" type="ButtonGroup" parent="Laps"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -159,6 +186,7 @@ alignment = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Laps/ButtonGroup"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -172,6 +200,7 @@ alignment = 0
 
 [node name="Lap_1" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -189,6 +218,7 @@ flat = false
 
 [node name="Lap_2" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -206,6 +236,7 @@ flat = false
 
 [node name="Lap_3" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -223,6 +254,7 @@ flat = false
 
 [node name="Lap_4" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -240,6 +272,7 @@ flat = false
 
 [node name="Lap_5" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -257,6 +290,7 @@ flat = false
 
 [node name="Lap_6" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -274,6 +308,7 @@ flat = false
 
 [node name="Lap_7" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -291,6 +326,7 @@ flat = false
 
 [node name="Lap_8" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -308,6 +344,7 @@ flat = false
 
 [node name="Lap_9" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -325,6 +362,7 @@ flat = false
 
 [node name="Lap_10" type="Button" parent="Laps/ButtonGroup/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -343,6 +381,7 @@ flat = false
 [node name="Players" type="Label" parent="."]
 
 visibility/visible = false
+material/use_parent = true
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -358,6 +397,7 @@ max_lines_visible = -1
 
 [node name="Players" type="ButtonGroup" parent="Players"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -370,6 +410,7 @@ alignment = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Players/Players"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -383,6 +424,7 @@ alignment = 0
 
 [node name="1" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -401,6 +443,7 @@ flat = false
 
 [node name="2" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -419,6 +462,7 @@ flat = false
 
 [node name="3" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -437,6 +481,7 @@ flat = false
 
 [node name="4" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -455,6 +500,7 @@ flat = false
 
 [node name="5" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -473,6 +519,7 @@ flat = false
 
 [node name="6" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -491,6 +538,7 @@ flat = false
 
 [node name="7" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -509,6 +557,7 @@ flat = false
 
 [node name="8" type="Button" parent="Players/Players/HBoxContainer"]
 
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -528,6 +577,7 @@ flat = false
 [node name="Back" type="Button" parent="."]
 
 visibility/visible = false
+material/use_parent = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2

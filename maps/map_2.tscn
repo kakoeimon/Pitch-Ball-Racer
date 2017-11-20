@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://maps/map_parts.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://maps/map.gd" type="Script" id=2]
 [ext_resource path="res://models/skybox.scn" type="PackedScene" id=3]
+[ext_resource path="res://models/godot_block.scn" type="PackedScene" id=4]
+[ext_resource path="res://models/github_block.scn" type="PackedScene" id=5]
+[ext_resource path="res://models/blender_block.scn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -21,18 +24,18 @@ cell/center_y = true
 cell/center_z = false
 cell/scale = 1.0
 data = {
-"cells": IntArray( 1, 0, 1441792, 65555, 0, 1048583, 131088, 4, 1048584, 1, 6, 1441793, 19, 6, 1048577, 1, 12, 1441793, 7, 12, 2, 13, 12, 1, 19, 12, 1048579, 1, 18, 3, 7, 18, 1048579, 1, 65512, 655364, 65531, 65512, 1441795, 131079, 65512, 655361, 131085, 65512, 655363, 131080, 65516, 655368, 65531, 65518, 1441793, 131085, 65518, 1048583, 1, 65524, 1441794, 65531, 65524, 3, 65549, 65524, 1048577, 1, 65530, 1441793, 65549, 65530, 1048578, 65555, 65530, 655363 )
+"cells": IntArray( 1, 0, 1441792, 65561, 0, 1611661313, 1, 6, 1612054529, 65555, 6, 1610612738, 65561, 6, 1611661315, 1, 12, 1612054529, 65555, 12, 1611661317, 1, 18, 1612054529, 131091, 18, 1611661313, 1, 24, 1610612739, 131079, 24, 6, 131085, 24, 1610612737, 131091, 24, 1611661315, 1, 65518, 1441795, 7, 65518, 1611268097, 13, 65518, 1611268099, 1, 65524, 1612054529, 7, 65524, 1610612738, 13, 65524, 1611661315, 1, 65530, 1441793, 7, 65530, 1611661314, 13, 65530, 1611268097, 19, 65530, 655365, 65561, 65530, 1611268099 )
 }
 script/script = ExtResource( 2 )
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 2, 0 )
+"_editor_floor_": Vector3( 0, 0, 0 )
 }
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.0552291, -0.497692, 0.865594, 0.0316905, 0.867354, 0.496682, -0.997971, -1.71363e-07, 0.0636753, 0, 16.4001, 0 )
+transform/local = Transform( 0.683791, -0.381254, 0.622154, 0.0316905, 0.867354, 0.496682, -0.72899, -0.31991, 0.605171, 0, 16.4001, 0 )
 layers = 1
 params/enabled = true
 params/editor_only = false
@@ -42,7 +45,7 @@ colors/diffuse = Color( 1, 1, 1, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
 shadow/darkening = 0.0
-shadow/z_offset = 0.15
+shadow/z_offset = 0.0
 shadow/z_slope_scale = 0.0
 shadow/esm_multiplier = 1.0
 shadow/blur_passes = 0.0
@@ -53,20 +56,20 @@ shadow/max_distance = 1000.0
 shadow/split_weight = 0.5
 shadow/zoffset_scale = 2.0
 
-[node name="DirectionalLight 2" type="DirectionalLight" parent="."]
+[node name="DirectionalLight1" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( -0.0326923, -0.858137, -0.512379, -0.877183, -0.221079, 0.426233, -0.479043, 0.463384, -0.745516, 0, 16.4001, 0 )
+transform/local = Transform( 0.732314, -0.388018, -0.559606, 0.0773933, -0.769032, 0.634508, -0.676555, -0.507969, -0.533143, 0, 16.4001, 6 )
 layers = 1
 params/enabled = true
 params/editor_only = false
 params/bake_mode = 3
-params/energy = 0.69
+params/energy = 1.0
 colors/diffuse = Color( 1, 1, 1, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
 shadow/darkening = 0.0
-shadow/z_offset = 0.15
+shadow/z_offset = 0.0
 shadow/z_slope_scale = 0.0
 shadow/esm_multiplier = 1.0
 shadow/blur_passes = 0.0
@@ -109,7 +112,7 @@ _update_shape_index = 0
 [node name="Camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 42, -4 )
+transform/local = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12, 47, 3 )
 projection = 0
 fov = 65.0
 near = 0.1
@@ -122,5 +125,31 @@ h_offset = 0.0
 v_offset = 0.0
 
 [node name="skybox" parent="." instance=ExtResource( 3 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+
+[node name="godot_block" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2, -3 )
+
+[node name="godot_block1" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -3 )
+
+[node name="github_block" parent="." instance=ExtResource( 5 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 2, 0.461878 )
+
+[node name="github_block1" parent="." instance=ExtResource( 5 )]
+
+transform/local = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 2, -14.7903 )
+
+[node name="blender_block" parent="." instance=ExtResource( 6 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 3, 12 )
+
+[node name="blender_block1" parent="." instance=ExtResource( 6 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 3, 18 )
 
 

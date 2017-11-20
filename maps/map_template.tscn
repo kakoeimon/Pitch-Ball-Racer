@@ -32,7 +32,7 @@ __meta__ = {
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.0552291, -0.497692, 0.865594, 0.0316905, 0.867354, 0.496682, -0.997971, -1.71363e-07, 0.0636753, 0, 16.4001, 0 )
+transform/local = Transform( 0.683791, -0.381254, 0.622154, 0.0316905, 0.867354, 0.496682, -0.72899, -0.31991, 0.605171, 0, 16.4001, 0 )
 layers = 1
 params/enabled = true
 params/editor_only = false
@@ -42,7 +42,7 @@ colors/diffuse = Color( 1, 1, 1, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
 shadow/darkening = 0.0
-shadow/z_offset = 0.15
+shadow/z_offset = 0.0
 shadow/z_slope_scale = 0.0
 shadow/esm_multiplier = 1.0
 shadow/blur_passes = 0.0
@@ -53,20 +53,20 @@ shadow/max_distance = 1000.0
 shadow/split_weight = 0.5
 shadow/zoffset_scale = 2.0
 
-[node name="DirectionalLight 2" type="DirectionalLight" parent="."]
+[node name="DirectionalLight1" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( -0.0326923, -0.858137, -0.512379, -0.877183, -0.221079, 0.426233, -0.479043, 0.463384, -0.745516, 0, 16.4001, 0 )
+transform/local = Transform( 0.732314, -0.388018, -0.559606, 0.0773933, -0.769032, 0.634508, -0.676555, -0.507969, -0.533143, 0, 16.4001, 6 )
 layers = 1
 params/enabled = true
 params/editor_only = false
 params/bake_mode = 3
-params/energy = 0.69
+params/energy = 1.0
 colors/diffuse = Color( 1, 1, 1, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
 shadow/darkening = 0.0
-shadow/z_offset = 0.15
+shadow/z_offset = 0.0
 shadow/z_slope_scale = 0.0
 shadow/esm_multiplier = 1.0
 shadow/blur_passes = 0.0

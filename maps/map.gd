@@ -51,6 +51,7 @@ func _ready():
 	create_road_areas()
 	set_ball()
 	add_child(play_point)
+	play_camera.set_play_point(play_point)
 	add_child(play_camera)
 	
 	set_area_out()
@@ -197,9 +198,10 @@ func set_ball():
 	players.append(ball)
 	play_point.ball = ball
 	ball.number = players.size()
+	ball.add_collision_exception_with(play_camera.get_node("Camera_Sight"))
 	play_camera.set_player(play_point.ball)
-	play_camera.get_node("set").show()
-	play_camera.get_node("shoot").hide()
+	play_camera.get_node("Menu/set").show()
+	play_camera.get_node("Menu/shoot").hide()
 	play_camera.get_node("power_ramp").hide()
 	
 func next_player():
@@ -374,8 +376,8 @@ func _on_Area_Start_exit(body):
 
 func race_finnished():
 	play_camera.get_node("power_ramp").hide()
-	play_camera.get_node("Player").hide()
-	play_camera.get_node("shoot").hide()
+	play_camera.get_node("Menu/Player").hide()
+	play_camera.get_node("Menu/shoot").hide()
 	play_point.set_fixed_process(false)
 	#play_camera.set_process(false)
 	

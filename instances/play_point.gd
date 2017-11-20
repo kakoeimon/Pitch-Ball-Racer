@@ -4,6 +4,7 @@ extends Spatial
 # var a = 2
 # var b = "textvar"
 var ball
+var camera
 var mouse_speed = Vector2()
 var mouse_input_speed = Vector2()
 var mouse_sensitivity = 0.01
@@ -22,7 +23,6 @@ var ball_shooted = false
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	ball = get_parent().get_node("ball")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 	set_process_input(true)
@@ -90,9 +90,9 @@ func _process(delta):
 		set_process(false)
 		set_fixed_process(true)
 		ball.throws = 0
-		get_parent().play_camera.get_node("set").hide()
+		get_parent().play_camera.get_node("Menu/set").hide()
 		get_parent().play_camera.get_node("power_ramp").show()
-		get_parent().play_camera.get_node("shoot").show()
+		get_parent().play_camera.get_node("Menu/shoot").show()
 	
 
 

@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://maps/map_parts.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://models/skybox.scn" type="PackedScene" id=2]
 [ext_resource path="res://models/ball.scn" type="PackedScene" id=3]
 [ext_resource path="res://textures/ball_2.tex" type="Texture" id=4]
 [ext_resource path="res://textures/ball_3.tex" type="Texture" id=5]
+[ext_resource path="res://models/github_block.scn" type="PackedScene" id=6]
+[ext_resource path="res://models/godot_block.scn" type="PackedScene" id=7]
+[ext_resource path="res://models/blender_block.scn" type="PackedScene" id=8]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -183,7 +186,7 @@ __meta__ = {
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( -0.944246, 0.188913, -0.26965, 0.0316905, 0.867354, 0.496682, 0.327712, 0.460445, -0.824983, 0, 16.4001, 0 )
+transform/local = Transform( 0.683791, -0.381254, 0.622154, 0.0316905, 0.867354, 0.496682, -0.72899, -0.31991, 0.605171, 0, 16.4001, 0 )
 layers = 1
 params/enabled = true
 params/editor_only = false
@@ -193,7 +196,7 @@ colors/diffuse = Color( 1, 1, 1, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
 shadow/darkening = 0.0
-shadow/z_offset = 0.15
+shadow/z_offset = 0.0
 shadow/z_slope_scale = 0.0
 shadow/esm_multiplier = 1.0
 shadow/blur_passes = 0.0
@@ -207,17 +210,17 @@ shadow/zoffset_scale = 2.0
 [node name="DirectionalLight 2" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( -0.576161, -0.00950554, -0.817282, -0.795629, -0.222401, 0.563483, -0.18712, 0.974909, 0.120576, 0, 16.4001, 0 )
+transform/local = Transform( 0.732314, -0.388018, -0.559606, 0.0773933, -0.769032, 0.634508, -0.676555, -0.507969, -0.533143, 0, 16.4001, 6 )
 layers = 1
 params/enabled = true
 params/editor_only = false
 params/bake_mode = 3
-params/energy = 0.69
+params/energy = 1.0
 colors/diffuse = Color( 1, 1, 1, 1 )
 colors/specular = Color( 1, 1, 1, 1 )
 shadow/shadow = false
 shadow/darkening = 0.0
-shadow/z_offset = 0.15
+shadow/z_offset = 0.0
 shadow/z_slope_scale = 0.0
 shadow/esm_multiplier = 1.0
 shadow/blur_passes = 0.0
@@ -323,5 +326,29 @@ geometry/baked_light_tex_id = 0
 mesh/mesh = SubResource( 6 )
 mesh/skeleton = NodePath("..")
 material/0 = SubResource( 7 )
+
+[node name="github_block" parent="." instance=ExtResource( 6 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 4, -11 )
+
+[node name="github_block1" parent="." instance=ExtResource( 6 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -11 )
+
+[node name="godot_block" parent="." instance=ExtResource( 7 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 4, -5 )
+
+[node name="godot_block1" parent="." instance=ExtResource( 7 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -5 )
+
+[node name="blender_block" parent="." instance=ExtResource( 8 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 4, 1 )
+
+[node name="blender_block1" parent="." instance=ExtResource( 8 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 1 )
 
 

@@ -8,16 +8,17 @@ var play_point
 onready var power_pointer = get_node("power_ramp/power_pointer")
 var max_power_pointer_x = 5.12
 var dir = 1
-
+var colors = [Color(1.0, 1.0, 0.0), Color(0.0, 0.0, 1.0), Color(1.0, 0.0, 0.0), Color(0.5, 0.0, 1.0), Color(1.0, 0.5, 0.0), Color(0.0, 1.0, 0.0), Color(0.5, 0.25, 0.0), Color(0.0, 0.0, 0.0)]
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	#target = get_path_to(get_parent().get_node("car/Position3D"))
-	play_point = get_parent().get_node("play_point")
 	set_process(true)
 	pass
 
+func set_play_point(p):
+	play_point = p
+	get_node("Camera_Sight").get_shape(0).set_length(play_point.ball.separation_length - 0.5)
 
 func _process(delta):
 	set_transform( get_transform().looking_at(play_point.ball.get_translation() , Vector3(0,1,0))) 
@@ -32,8 +33,8 @@ func move_pointer():
 	power_pointer.set_translation( pos )
 	
 func set_player(ball):
-	get_node("Player").set_text("Player " + str(ball.number) + "\n" + "Lap " + str(ball.lap + 1))
-	
+	get_node("Menu/Player").set_text("Player " + str(ball.number) + "\n" + "Lap " + str(ball.lap + 1))
+	get_node("Menu").get_material().set_shader_param("Color", colors[ball.number - 1])
 
 
 func _on_Menu_pressed():
@@ -52,3 +53,16 @@ func _on_Restart_button_up():
 	main_menu.laps = get_parent().laps
 	main_menu.start_map()
 
+
+
+func _on_Camera_Sight_body_enter( body ):
+	var mesh = body.get_node("mesh")
+	var material = mesh.set_material_override(preload("res://models/map_parts_material_add.tres"))
+	print(material)
+	pass # replace with function body
+
+
+func _on_Camera_Sight_body_exit( body ):
+	var mesh = body.get_node("mesh")
+	var material = mesh.set_material_override(preload("res://models/map_parts_material.tres"))
+	pass # replace with function body
