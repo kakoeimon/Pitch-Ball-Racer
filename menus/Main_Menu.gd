@@ -18,19 +18,15 @@ func _ready():
 
 func get_maps():
 	var t = "res://maps/map_"
-	for i in range(1,100):
+	for i in range(1,4):
 		var map_file = t + str(i) + ".tscn"
-		if File.new().file_exists(map_file):
-			print(map_file)
-			var map = load(map_file).instance()
-			map.set_script(null)
-			var map_button = preload("res://menus/map_button.tscn").instance()
-			
-			map_button.get_node("Viewport").add_child(map)
-			get_node("map_selector/ScrollContainer/HBoxContainer").add_child(map_button)
-			map_button.connect("pressed", self, "map_selected", [i])
-		else:
-			break
+		var map = load(map_file).instance()
+		map.set_script(null)
+		var map_button = preload("res://menus/map_button.tscn").instance()
+		map_button.get_node("Viewport").add_child(map)
+		get_node("map_selector/ScrollContainer/HBoxContainer").add_child(map_button)
+		map_button.connect("pressed", self, "map_selected", [i])
+
 
 func map_selected(num):
 	map_number = num
