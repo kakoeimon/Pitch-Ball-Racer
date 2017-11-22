@@ -6,7 +6,7 @@ extends Camera
 var play_point
 
 onready var power_pointer = get_node("power_ramp/power_pointer")
-var max_power_pointer_x = 5.12
+var max_power_pointer_x = 512
 var dir = 1
 var colors = [Color(1.0, 1.0, 0.0), Color(0.0, 0.0, 1.0), Color(1.0, 0.0, 0.0), Color(0.5, 0.0, 1.0), Color(1.0, 0.5, 0.0), Color(0.0, 1.0, 0.0), Color(0.5, 0.25, 0.0), Color(0.0, 0.0, 0.0)]
 
@@ -28,9 +28,9 @@ func _process(delta):
 
 func move_pointer():
 	var x = play_point.power / play_point.max_power * max_power_pointer_x
-	var pos = power_pointer.get_translation()
+	var pos = power_pointer.get_pos()
 	pos.x = x
-	power_pointer.set_translation( pos )
+	power_pointer.set_pos( pos )
 	
 func set_player(ball):
 	get_node("Menu/Player").set_text("Player " + str(ball.number) + "\n" + "Lap " + str(ball.lap + 1))

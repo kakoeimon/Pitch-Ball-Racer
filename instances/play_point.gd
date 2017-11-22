@@ -20,6 +20,9 @@ var power_step = 0.5
 var ball_moving = false
 var ball_shooted = false
 
+var html_starting_mouse = Vector2()
+var html_move_camera = false
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -33,16 +36,27 @@ func _ready():
 
 
 func _input(e):
-	if e.type == InputEvent.MOUSE_MOTION:
+	if OS.get_name() == "HTML5":
+		if e.is_action_pressed("move"):
+			html_starting_mouse = get_viewport().get_mouse_pos()
+			html_move_camera = true
+		elif e.is_action_released("move"):
+			html_starting_mouse = get_viewport().get_mouse_pos()
+			html_move_camera = false
+		elif e.type == InputEvent.MOUSE_MOTION and html_move_camera:
+			mouse_input_speed = e.pos - html_starting_mouse
+			html_starting_mouse = e.pos
+	elif e.type == InputEvent.MOUSE_MOTION:
 		mouse_input_speed = e.relative_pos
 		
 	if not ball_moving:
-		if e.type == InputEvent.MOUSE_BUTTON:
-			if e.pressed:
+		if e.is_action_pressed("fire"):
 				mouse_down = true
-			else:
-				mouse_down = false
-				mouse_released = true
+		elif e.is_action_released("fire"):
+			mouse_down = false
+			mouse_released = true
+	
+		
 				
 
 #Process is for positioning the ball before the first throw
@@ -56,8 +70,8 @@ func _process(delta):
 	if (mouse_speed - mouse_input_speed).length_squared() > 0.00000001:
 		mouse_speed = mouse_input_speed
 		pos.y += mouse_speed.y * mouse_sensitivity
-		if pos.y < ball.get_translation().y:
-			pos.y = ball.get_translation().y
+		if pos.y < 0.5:#ball.get_translation().y:
+			pos.y = 0.5 #ball.get_translation().y
 			pos = pos.normalized() * ball.separation_length
 		#pos = pos.rotated(Vector3(0,1,0), mouse_speed.x * mouse_sensitivity * 0.1)
 		if start_dir == parent.PLUS_X:
@@ -102,8 +116,8 @@ func _fixed_process(delta):
 	if (mouse_speed - mouse_input_speed).length_squared() > 0.00000001:
 		mouse_speed = mouse_input_speed
 		pos.y += mouse_speed.y * mouse_sensitivity
-		if pos.y < ball.get_translation().y:
-			pos.y = ball.get_translation().y
+		if pos.y < 0.5:#ball.get_translation().y:
+			pos.y = 0.5#ball.get_translation().y
 		pos = pos.rotated(Vector3(0,1,0), mouse_speed.x * mouse_sensitivity * 0.1)
 		pos = pos.normalized() * ball.separation_length
 	

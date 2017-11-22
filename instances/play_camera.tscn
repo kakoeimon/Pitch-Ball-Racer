@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://instances/play_camera.gd" type="Script" id=1]
-[ext_resource path="res://textures/power_ramp.tex" type="Texture" id=2]
-[ext_resource path="res://textures/power_pointer.tex" type="Texture" id=3]
-[ext_resource path="res://fonts/font_theme.tres" type="Theme" id=4]
+[ext_resource path="res://fonts/font_theme.tres" type="Theme" id=2]
+[ext_resource path="res://textures/power_ramp.tex" type="Texture" id=3]
+[ext_resource path="res://textures/power_pointer.tex" type="Texture" id=4]
 
 [sub_resource type="RayShape" id=1]
 
@@ -60,82 +60,6 @@ h_offset = 0.0
 v_offset = 0.0
 script/script = ExtResource( 1 )
 
-[node name="power_ramp" type="Sprite3D" parent="."]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64, -2.42425, -4.37966 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-centered = false
-offset = Vector2( 0, 0 )
-flip_h = false
-flip_v = false
-modulate = Color( 1, 1, 1, 1 )
-opacity = 1.0
-pixel_size = 0.01
-axis = 2
-flags/transparent = true
-flags/shaded = false
-flags/double_sided = true
-flags/on_top = true
-flags/alpha_cut = 0
-texture = ExtResource( 2 )
-vframes = 1
-hframes = 1
-frame = 0
-region = false
-region_rect = Rect2( 0, 0, 0, 0 )
-
-[node name="power_pointer" type="Sprite3D" parent="power_ramp"]
-
-_import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0.019644 )
-layers = 1
-geometry/visible = true
-geometry/material_override = null
-geometry/cast_shadow = 1
-geometry/receive_shadows = true
-geometry/range_begin = 0.0
-geometry/range_end = 0.0
-geometry/extra_cull_margin = 0.0
-geometry/billboard = false
-geometry/billboard_y = false
-geometry/depth_scale = false
-geometry/visible_in_all_rooms = false
-geometry/use_baked_light = false
-geometry/baked_light_tex_id = 0
-centered = true
-offset = Vector2( 0, 0 )
-flip_h = false
-flip_v = false
-modulate = Color( 1, 1, 1, 1 )
-opacity = 1.0
-pixel_size = 0.01
-axis = 2
-flags/transparent = true
-flags/shaded = false
-flags/double_sided = true
-flags/on_top = true
-flags/alpha_cut = 0
-texture = ExtResource( 3 )
-vframes = 1
-hframes = 1
-frame = 0
-region = false
-region_rect = Rect2( 0, 0, 0, 0 )
-
 [node name="Camera_Sight" type="Area" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -185,7 +109,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 2 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 110.0
@@ -202,7 +126,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 2 )
 margin/left = 433.0
 margin/top = 488.0
 margin/right = 619.0
@@ -220,7 +144,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 2 )
 margin/left = 419.0
 margin/top = 488.0
 margin/right = 640.0
@@ -238,7 +162,7 @@ focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 2 )
 margin/left = 428.0
 margin/top = 17.0
 margin/right = 573.0
@@ -255,7 +179,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = ExtResource( 4 )
+theme/theme = ExtResource( 2 )
 margin/left = 401.0
 margin/top = 481.0
 margin/right = 540.0
@@ -282,6 +206,17 @@ enabled_focus_mode = 2
 shortcut = null
 text = "Quit to Main Menu"
 flat = false
+
+[node name="power_ramp" type="Sprite" parent="."]
+
+transform/pos = Vector2( 256, 523.743 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="power_pointer" type="Sprite" parent="power_ramp"]
+
+transform/pos = Vector2( 0, 20 )
+texture = ExtResource( 4 )
 
 [connection signal="body_enter" from="Camera_Sight" to="." method="_on_Camera_Sight_body_enter"]
 

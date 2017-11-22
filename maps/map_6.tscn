@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://maps/map_parts.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://maps/map.gd" type="Script" id=2]
 [ext_resource path="res://models/skybox.scn" type="PackedScene" id=3]
-[ext_resource path="res://models/godot_block.scn" type="PackedScene" id=4]
-[ext_resource path="res://models/github_block.scn" type="PackedScene" id=5]
-[ext_resource path="res://models/blender_block.scn" type="PackedScene" id=6]
+[ext_resource path="res://models/gimp_block.scn" type="PackedScene" id=4]
+[ext_resource path="res://models/blender_block.scn" type="PackedScene" id=5]
+[ext_resource path="res://models/github_block.scn" type="PackedScene" id=6]
+[ext_resource path="res://models/godot_block.scn" type="PackedScene" id=7]
+[ext_resource path="res://models/synfig_block.scn" type="PackedScene" id=8]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -24,7 +26,7 @@ cell/center_y = true
 cell/center_z = false
 cell/scale = 1.0
 data = {
-"cells": IntArray( 1, 0, 1441792, 65561, 0, 1048577, 1, 6, 1441793, 65555, 6, 2, 65561, 6, 1048579, 1, 12, 1441793, 65555, 12, 1048581, 1, 18, 1441793, 131091, 18, 1048577, 1, 24, 3, 131079, 24, 6, 131085, 24, 1, 131091, 24, 1048579, 1, 65518, 1441795, 7, 65518, 655361, 13, 65518, 655363, 1, 65524, 1441793, 7, 65524, 2, 13, 65524, 1048579, 1, 65530, 1441793, 7, 65530, 1048578, 13, 65530, 655361, 19, 65530, 655365, 65561, 65530, 655363 )
+"cells": IntArray( 1, 0, 1441792, -524275, 0, 1611661313, 1, 6, 1610612739, 7, 6, 1612054530, -524287, 6, 1610612737, -524281, 6, 1610612737, -524275, 6, 1611661315, -458757, 6, 4, -327691, 6, 1610612740, -196631, 6, 1610612738, -196625, 6, 1610612737, 7, 12, 1612054529, -196631, 12, 1611661314, -196625, 12, 1611268100, -131077, 12, 1611268100, -65547, 12, 655367, -65535, 12, 1611268099, 7, 18, 1612054529, -65535, 18, 1048581, 1, 24, 1611661314, 7, 24, 1611268098, -262143, 65518, 1441794, -196619, 65518, 1610612738, -196613, 65518, 1, -196619, 65524, 1611661318, -131071, 65524, 1612054534, 1, 65530, 1441798, -524287, 65530, 1611268097, -524281, 65530, 1611268097, -524275, 65530, 655363, -327691, 65530, 1611661314, -327685, 65530, 1611268102 )
 }
 script/script = ExtResource( 2 )
 __meta__ = {
@@ -112,7 +114,7 @@ _update_shape_index = 0
 [node name="Camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 12, 47, 3 )
+transform/local = Transform( -1, 3.25841e-07, 0, 5.30863e-14, 1.62921e-07, 1, 3.25841e-07, 1, -1.62921e-07, -3, 43, 3 )
 projection = 0
 fov = 65.0
 near = 0.1
@@ -126,30 +128,48 @@ v_offset = 0.0
 
 [node name="skybox" parent="." instance=ExtResource( 3 )]
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
+[node name="gimp_block" parent="." instance=ExtResource( 4 )]
 
-[node name="godot_block" parent="." instance=ExtResource( 4 )]
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1, 0 )
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2, -3 )
+[node name="blender_block" parent="." instance=ExtResource( 5 )]
 
-[node name="godot_block1" parent="." instance=ExtResource( 4 )]
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 1, 0 )
 
-transform/local = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, -3 )
+[node name="blender_block1" parent="." instance=ExtResource( 5 )]
 
-[node name="github_block" parent="." instance=ExtResource( 5 )]
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 1, -12 )
 
-transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 2, 0.461878 )
+[node name="blender_block2" parent="." instance=ExtResource( 5 )]
 
-[node name="github_block1" parent="." instance=ExtResource( 5 )]
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, -3, -12 )
 
-transform/local = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 2, -14.7903 )
+[node name="github_block" parent="." instance=ExtResource( 6 )]
 
-[node name="blender_block" parent="." instance=ExtResource( 6 )]
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -6 )
 
-transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 3, 12 )
+[node name="github_block1" parent="." instance=ExtResource( 6 )]
 
-[node name="blender_block1" parent="." instance=ExtResource( 6 )]
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 1, -6 )
 
-transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 3, 18 )
+[node name="github_block2" parent="." instance=ExtResource( 6 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, -3, -6 )
+
+[node name="godot_block" parent="." instance=ExtResource( 7 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -12 )
+
+[node name="godot_block1" parent="." instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, -2.38419e-07, -1.62921e-07, -9.72763e-08, 0.845236, -0.906308, 1.76894e-07, 1.81262, 0.422618, -5, -3, -7 )
+
+[node name="godot_block2" parent="." instance=ExtResource( 7 )]
+
+transform/local = Transform( 1, -2.38419e-07, -1.62921e-07, -9.72763e-08, 0.845236, -0.906308, 1.76894e-07, 1.81262, 0.422618, 1, -3, -7 )
+
+[node name="synfig_block" parent="." instance=ExtResource( 8 )]
+
+transform/local = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, -3, -12.6733 )
 
 

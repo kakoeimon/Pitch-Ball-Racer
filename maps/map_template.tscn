@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://maps/map_parts.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://maps/map.gd" type="Script" id=2]
 [ext_resource path="res://models/skybox.scn" type="PackedScene" id=3]
+[ext_resource path="res://models/blender_block.scn" type="PackedScene" id=4]
+[ext_resource path="res://models/github_block.scn" type="PackedScene" id=5]
+[ext_resource path="res://models/godot_block.scn" type="PackedScene" id=6]
+[ext_resource path="res://models/gimp_block.scn" type="PackedScene" id=7]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -21,7 +25,7 @@ cell/center_y = true
 cell/center_z = false
 cell/scale = 1.0
 data = {
-"cells": IntArray( 1, 0, 1441792 )
+"cells": IntArray( 65535, 1, 1441792 )
 }
 script/script = ExtResource( 2 )
 __meta__ = {
@@ -56,7 +60,7 @@ shadow/zoffset_scale = 2.0
 [node name="DirectionalLight1" type="DirectionalLight" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 0.732314, -0.388018, -0.559606, 0.0773933, -0.769032, 0.634508, -0.676555, -0.507969, -0.533143, 0, 16.4001, 6 )
+transform/local = Transform( 0.732314, -0.388018, -0.559606, 0.0773934, -0.769032, 0.634508, -0.676555, -0.507969, -0.533143, 0, 16.4001, 6 )
 layers = 1
 params/enabled = true
 params/editor_only = false
@@ -109,7 +113,7 @@ _update_shape_index = 0
 [node name="Camera" type="Camera" parent="."]
 
 _import_transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-transform/local = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 23, 0 )
+transform/local = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 32, -3 )
 projection = 0
 fov = 65.0
 near = 0.1
@@ -122,5 +126,21 @@ h_offset = 0.0
 v_offset = 0.0
 
 [node name="skybox" parent="." instance=ExtResource( 3 )]
+
+[node name="blender_block" parent="." instance=ExtResource( 4 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 2, 1 )
+
+[node name="github_block" parent="." instance=ExtResource( 5 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 2, -11 )
+
+[node name="godot_block" parent="." instance=ExtResource( 6 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 2, -5 )
+
+[node name="gimp_block" parent="." instance=ExtResource( 7 )]
+
+transform/local = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 2, 7 )
 
 

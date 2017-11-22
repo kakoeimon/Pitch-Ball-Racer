@@ -198,7 +198,6 @@ func set_ball():
 	players.append(ball)
 	play_point.ball = ball
 	ball.number = players.size()
-	ball.add_collision_exception_with(play_camera.get_node("Camera_Sight"))
 	play_camera.set_player(play_point.ball)
 	play_camera.get_node("Menu/set").show()
 	play_camera.get_node("Menu/shoot").hide()

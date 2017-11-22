@@ -18,7 +18,7 @@ func _ready():
 
 func get_maps():
 	var t = "res://maps/map_"
-	for i in range(1,4):
+	for i in range(1,11):
 		var map_file = t + str(i) + ".tscn"
 		var map = load(map_file).instance()
 		map.set_script(null)
